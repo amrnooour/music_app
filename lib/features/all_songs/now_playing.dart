@@ -46,13 +46,18 @@ class _NowPlayingState extends State<NowPlaying> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const CircleAvatar(
-                    radius: 100,
-                    child: Icon(
+                  Center(
+                      child: QueryArtworkWidget(
+                    id: widget.songModel.id,
+                    type: ArtworkType.AUDIO,
+                    artworkHeight: 200,
+                    artworkWidth: 200,
+                    artworkFit: BoxFit.cover,
+                    nullArtworkWidget: const Icon(
                       Icons.music_note,
-                      size: 80,
+                      size: 200,
                     ),
-                  ),
+                  )),
                   const SizedBox(
                     height: 30,
                   ),
