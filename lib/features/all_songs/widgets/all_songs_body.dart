@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:music_app/core/functions/request_permission.dart';
 import 'package:music_app/features/all_songs/now_playing.dart';
+import 'package:music_app/features/all_songs/provider/sogs_provider.dart';
 import 'package:music_app/features/all_songs/widgets/custom_list_view_item.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+import 'package:provider/provider.dart';
 
 class AllSongsBody extends StatefulWidget {
   const AllSongsBody({super.key});
@@ -39,11 +41,15 @@ class _AllSongsBodyState extends State<AllSongsBody> {
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) => CustomListViewItem(
               queryArtworkWidget: QueryArtworkWidget(
+                artworkHeight: 40,
+                artworkWidth: 40,
+                artworkFit: BoxFit.fill,
                 id: snapshot.data![index].id,
                 type: ArtworkType.AUDIO,
                 nullArtworkWidget: const Icon(Icons.music_note),
               ),
               onPressed: () {
+                context.read<SongsProvider>().setId(snapshot.data![index].id);
                 Navigator.push(
                     context,
                     MaterialPageRoute(

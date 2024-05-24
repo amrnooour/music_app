@@ -19,7 +19,10 @@ class CustomListViewItem extends StatelessWidget {
       leading: IconButton(onPressed: onPressed, icon: queryArtworkWidget),
       title: Text(title),
       subtitle: Text(subTitle),
-      trailing: const Icon(Icons.more_horiz),
+      trailing: const Icon(
+        Icons.more_horiz,
+        color: Colors.grey,
+      ),
     );
   }
 }

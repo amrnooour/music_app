@@ -8,7 +8,10 @@ class AllSongs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Music Player 2024"),
+        title: const Text("My Music"),
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: 0,
         actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
       ),
       body: const AllSongsBody(),

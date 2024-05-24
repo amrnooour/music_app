@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio_background/just_audio_background.dart';
+import 'package:music_app/features/all_songs/widgets/custom_query_widget.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'dart:developer';
 import 'package:just_audio/just_audio.dart';
@@ -46,18 +47,7 @@ class _NowPlayingState extends State<NowPlaying> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Center(
-                      child: QueryArtworkWidget(
-                    id: widget.songModel.id,
-                    type: ArtworkType.AUDIO,
-                    artworkHeight: 200,
-                    artworkWidth: 200,
-                    artworkFit: BoxFit.cover,
-                    nullArtworkWidget: const Icon(
-                      Icons.music_note,
-                      size: 200,
-                    ),
-                  )),
+                  const Center(child: CustomQueryWidget()),
                   const SizedBox(
                     height: 30,
                   ),

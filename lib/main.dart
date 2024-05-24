@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio_background/just_audio_background.dart';
-import 'package:music_app/features/all_songs/all_songs.dart';
+import 'package:music_app/features/all_songs/provider/sogs_provider.dart';
+import 'package:music_app/features/splash/spalsh.dart';
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
   await JustAudioBackground.init(
@@ -8,7 +10,8 @@ Future<void> main() async {
     androidNotificationChannelName: 'Audio playback',
     androidNotificationOngoing: true,
   );
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => SongsProvider(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AllSongs(),
+      home: Splash(),
     );
   }
 }
